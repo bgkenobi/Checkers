@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://c57rairc22b"]
 
+[ext_resource type="Script" uid="uid://c5lptvgt0yqi6" path="res://Sripts/PlaneScripts/Plane6Scripts/plane_6.gd" id="1_1fis6"]
 [ext_resource type="ArrayMesh" uid="uid://ctkuyluqm74ei" path="res://Assets/Planes/Package/Plane_06.obj" id="1_grpce"]
 
-[node name="Node3D" type="Node3D" unique_id=26940096]
+[sub_resource type="BoxShape3D" id="BoxShape3D_0aud4"]
+size = Vector3(2.2065735, 0.3494873, 1.8675537)
 
-[node name="Plane06" type="MeshInstance3D" parent="." unique_id=647546801]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+[node name="Node3D" type="Node3D" unique_id=26940096]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 0, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1269804368]
+script = ExtResource("1_1fis6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=186733818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04307556, 0.19042969, -0.10638428)
+shape = SubResource("BoxShape3D_0aud4")
+
+[node name="Plane06" type="MeshInstance3D" parent="CharacterBody3D" unique_id=647546801]
+transform = Transform3D(0.29999214, 0.002172916, 0, -0.002172916, 0.29999214, 0, 0, 0, 0.3, 0, 0, -0.09349632)
 mesh = ExtResource("1_grpce")
+
+[node name="CameraPivot" type="Node3D" parent="CharacterBody3D" unique_id=1256780785]
+transform = Transform3D(1.192459e-08, 8.325069e-11, -0.99999994, -0.00698126, 0.9999756, 0, 0.9999756, 0.00698126, 1.192488e-08, 0.09688711, 0.8477359, -0.09349626)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CharacterBody3D/CameraPivot" unique_id=561116308]
+transform = Transform3D(0.9999738, -0.007243053, 1.4210855e-14, 0.007243053, 0.9999738, 1.110223e-16, 0, 3.1225023e-17, 1, -0.003139168, 0.44965518, -1.7540003)
+spring_length = 6.0
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraPivot/SpringArm3D" unique_id=1006350200]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -0.00034017116, -1.2993397, -2.0313315)

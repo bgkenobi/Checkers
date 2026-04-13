@@ -11,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://cutf26bk364tw" path="res://Assets/Maps/Desert/Fbx/Mountain_desert_002.fbx" id="9_211nt"]
 [ext_resource type="PackedScene" uid="uid://c542wvp6skesa" path="res://Assets/Maps/Desert/Fbx/Mountain_desert_003.fbx" id="10_xmf6g"]
 [ext_resource type="PackedScene" uid="uid://dneb1r5po1wru" path="res://Assets/Maps/Desert/Fbx/Plateau_desert_004.fbx" id="11_k6kgl"]
+[ext_resource type="ArrayMesh" uid="uid://dn6pvgwh8i5a" path="res://Assets/Buildings/Package/LargeBuilding01.obj" id="12_xmf6g"]
+[ext_resource type="ArrayMesh" uid="uid://cu87wodpww68d" path="res://Assets/Buildings/Package/SmallBuilding01.obj" id="13_k6kgl"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f67o8"]
+top_radius = 50.0
+bottom_radius = 50.0
+height = 37.922
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dw61l"]
 render_priority = 0
@@ -39,7 +46,14 @@ sky = SubResource("Sky_vrk3e")
 ambient_light_color = Color(0.88235295, 0.7490196, 0.57254905, 1)
 ambient_light_sky_contribution = 0.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_rgpyq"]
+size = Vector3(2, 0.3, 15)
+
 [node name="Node3D" type="Node3D" unique_id=1406369806]
+
+[node name="Boundary" type="MeshInstance3D" parent="." unique_id=884922847]
+visible = false
+mesh = SubResource("CylinderMesh_f67o8")
 
 [node name="Mountain_desert_001" parent="." unique_id=2077596509 instance=ExtResource("1_04hpa")]
 transform = Transform3D(1.269234, 0, -0.7994031, 0, 1.4999999, 0, 0.7994031, 0, 1.269234, 53.94392, -1.1846514, 16.740215)
@@ -48,7 +62,7 @@ transform = Transform3D(1.269234, 0, -0.7994031, 0, 1.4999999, 0, 0.7994031, 0, 
 transform = Transform3D(-0.18515202, 0, -0.9827099, 0, 0.99999964, 0, 0.9827099, 0, -0.18515202, -64.64805, -0.99999994, -20.9642)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1161706605]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8460884, -0.273798, 0.008167267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8457458, -0.013448715, -0.018043518)
 mesh = SubResource("PlaneMesh_vrk3e")
 
 [node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D" unique_id=605875812]
@@ -65,9 +79,6 @@ mesh = ExtResource("2_vlflh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=701631984]
 environment = SubResource("Environment_vrk3e")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=238920798]
-transform = Transform3D(-0.45385054, 0.3232939, -0.83036184, -1.8718154e-08, 0.93186235, 0.3628122, 0.8910778, 0.16466253, -0.42292622, -13.833843, 7.0416346, -4.538045)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1007940116]
 transform = Transform3D(1, 0, 0, 0, -0.5304817, 0.8476964, 0, -0.8476964, -0.5304817, 0, 0, 0)
@@ -109,6 +120,10 @@ mesh = ExtResource("6_wysc3")
 
 [node name="SmallBuilding02" type="MeshInstance3D" parent="TinyBuilding01/TinyBuilding02/SmallBuilding02" unique_id=886174786]
 transform = Transform3D(0.9183634, 0, -0.39573756, 0, 1, 0, 0.39573756, 0, 0.9183634, -17.643982, 0.11690283, -10.303555)
+mesh = ExtResource("6_wysc3")
+
+[node name="SmallBuilding03" type="MeshInstance3D" parent="TinyBuilding01/TinyBuilding02/SmallBuilding02" unique_id=1101110916]
+transform = Transform3D(0.5064553, 0, -0.86226594, 0, 1, 0, 0.86226594, 0, 0.5064553, -32.35642, 0.11690283, -8.90376)
 mesh = ExtResource("6_wysc3")
 
 [node name="TallBuilding06" type="MeshInstance3D" parent="." unique_id=1465405800]
@@ -155,3 +170,39 @@ transform = Transform3D(0.96533155, 0, -0.26102683, 0, 1, 0, 0.26102683, 0, 0.96
 
 [node name="Plateau_desert_004" parent="." unique_id=181501100 instance=ExtResource("11_k6kgl")]
 transform = Transform3D(0.99999815, 0.00060987484, -0.0018388146, 0, 0.9491567, 0.31480432, 0.0019373145, -0.31480375, 0.9491549, -17.961882, -8.469921, 70.78241)
+
+[node name="LargeBuilding01" type="MeshInstance3D" parent="." unique_id=1635262806]
+transform = Transform3D(-0.90570205, 0, -0.4239148, 0, 1, 0, 0.4239148, 0, -0.90570205, 12.982652, -0.38346577, 12.901117)
+mesh = ExtResource("12_xmf6g")
+
+[node name="SmallBuilding01" type="MeshInstance3D" parent="." unique_id=1053687820]
+transform = Transform3D(0.27588904, 0, 0.9611895, 0, 1, 0, -0.9611895, 0, 0.27588904, -6.1408997, 0.24318409, 14.967171)
+mesh = ExtResource("13_k6kgl")
+
+[node name="SmallBuilding02" type="MeshInstance3D" parent="." unique_id=2030904544]
+transform = Transform3D(0.21135892, 0, -0.9774085, 0, 1, 0, 0.9774085, 0, 0.21135892, 6.4200287, -0.15180922, 12.541285)
+mesh = ExtResource("6_wysc3")
+
+[node name="TallBuilding07" type="MeshInstance3D" parent="." unique_id=836567313]
+transform = Transform3D(-0.9242731, 0, 0.38173196, 0, 1, 0, -0.38173196, 0, -0.9242731, 6.9903545, 0, 19.396767)
+mesh = ExtResource("7_x4s33")
+
+[node name="TallBuilding08" type="MeshInstance3D" parent="." unique_id=1958707785]
+transform = Transform3D(-0.17070824, 0, 0.98532164, 0, 1, 0, -0.98532164, 0, -0.17070824, -4.6596026, 0, 21.879349)
+mesh = ExtResource("3_dw61l")
+
+[node name="TallBuilding09" type="MeshInstance3D" parent="." unique_id=1180102668]
+transform = Transform3D(0.17560725, 0, -0.9844603, 0, 1, 0, 0.9844603, 0, 0.17560725, 4.6040764, 4.2072277, -13.106963)
+mesh = ExtResource("5_fa1w0")
+
+[node name="TinyBuilding04" type="MeshInstance3D" parent="." unique_id=395699633]
+transform = Transform3D(0.92940336, 0, 0.36906558, 0, 1, 0, -0.36906558, 0, 0.92940336, 4.038314, 0, -9.639582)
+mesh = ExtResource("2_vlflh")
+
+[node name="TallBuilding10" type="MeshInstance3D" parent="." unique_id=664052866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.854578, 4.300466, -12.515244)
+mesh = ExtResource("5_fa1w0")
+
+[node name="Runway" type="MeshInstance3D" parent="." unique_id=1739364399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35543442, 41.121315)
+mesh = SubResource("BoxMesh_rgpyq")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://kfuuntyvmmgv"]
+
+[ext_resource type="Script" uid="uid://jcwgy00vha8r" path="res://Sripts/Menu/start_menu.gd" id="1_r1k57"]
+
+[node name="Control" type="Control" unique_id=441823912]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1k57")
+
+[node name="Desert_Button" type="Button" parent="." unique_id=1062072812]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 225.0
+offset_right = 498.0
+offset_bottom = 269.0
+text = "Desert
+"
+
+[connection signal="pressed" from="Desert_Button" to="." method="_on_desert_button_pressed"]
