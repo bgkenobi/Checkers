@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c57rairc22b"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctkuyluqm74ei" path="res://Assets/Planes/Package/Plane_06.obj" id="1_grpce"]
+
+[node name="Node3D" type="Node3D" unique_id=26940096]
+
+[node name="Plane06" type="MeshInstance3D" parent="." unique_id=647546801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+mesh = ExtResource("1_grpce")

@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://b5tpj7kfynia7"]
+
+[ext_resource type="PackedScene" uid="uid://dcwriasaqcvkm" path="res://Assets/Maps/Desert/Usable_desert/hill_desert_001.tscn" id="1_1hyoh"]
+[ext_resource type="PackedScene" uid="uid://wy1htdi53loy" path="res://Assets/Maps/Desert/Fbx/Mountain_desert_001.fbx" id="1_04hpa"]
+[ext_resource type="Shader" uid="uid://bj2wdjnyaevd1" path="res://Assets/Maps/Desert/Textures/desert.gdshader" id="1_vrk3e"]
+[ext_resource type="ArrayMesh" uid="uid://cnix1o5u6mf4q" path="res://Assets/Buildings/Package/TinyBuilding01.obj" id="2_vlflh"]
+[ext_resource type="ArrayMesh" uid="uid://dj3u7bd2wlro6" path="res://Assets/Buildings/Package/TallBuilding02.obj" id="3_dw61l"]
+[ext_resource type="ArrayMesh" uid="uid://b36ybd3j0myqq" path="res://Assets/Buildings/Package/TallBuilding03.obj" id="5_fa1w0"]
+[ext_resource type="ArrayMesh" uid="uid://bkohwv52f6ll" path="res://Assets/Buildings/Package/SmallBuilding02.obj" id="6_wysc3"]
+[ext_resource type="ArrayMesh" uid="uid://ni0ctbs04jcs" path="res://Assets/Buildings/Package/TallBuilding01.obj" id="7_x4s33"]
+[ext_resource type="PackedScene" uid="uid://cutf26bk364tw" path="res://Assets/Maps/Desert/Fbx/Mountain_desert_002.fbx" id="9_211nt"]
+[ext_resource type="PackedScene" uid="uid://c542wvp6skesa" path="res://Assets/Maps/Desert/Fbx/Mountain_desert_003.fbx" id="10_xmf6g"]
+[ext_resource type="PackedScene" uid="uid://dneb1r5po1wru" path="res://Assets/Maps/Desert/Fbx/Plateau_desert_004.fbx" id="11_k6kgl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dw61l"]
+render_priority = 0
+shader = ExtResource("1_vrk3e")
+shader_parameter/height = 0.5
+shader_parameter/scale = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vrk3e"]
+material = SubResource("ShaderMaterial_dw61l")
+size = Vector2(1000, 1000)
+subdivide_width = 100
+subdivide_depth = 50
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vrk3e"]
+sky_top_color = Color(0.30569196, 0.41291925, 0.8205539, 1)
+sky_horizon_color = Color(0.4940716, 0.6283013, 0.77375257, 1)
+sky_curve = 0.2897795
+
+[sub_resource type="Sky" id="Sky_vrk3e"]
+sky_material = SubResource("ProceduralSkyMaterial_vrk3e")
+
+[sub_resource type="Environment" id="Environment_vrk3e"]
+background_mode = 2
+background_energy_multiplier = 2.65
+sky = SubResource("Sky_vrk3e")
+ambient_light_color = Color(0.88235295, 0.7490196, 0.57254905, 1)
+ambient_light_sky_contribution = 0.0
+
+[node name="Node3D" type="Node3D" unique_id=1406369806]
+
+[node name="Mountain_desert_001" parent="." unique_id=2077596509 instance=ExtResource("1_04hpa")]
+transform = Transform3D(1.269234, 0, -0.7994031, 0, 1.4999999, 0, 0.7994031, 0, 1.269234, 53.94392, -1.1846514, 16.740215)
+
+[node name="Mountain_desert_002" parent="Mountain_desert_001" unique_id=163111274 instance=ExtResource("1_04hpa")]
+transform = Transform3D(-0.18515202, 0, -0.9827099, 0, 0.99999964, 0, 0.9827099, 0, -0.18515202, -64.64805, -0.99999994, -20.9642)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1161706605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8460884, -0.273798, 0.008167267)
+mesh = SubResource("PlaneMesh_vrk3e")
+
+[node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D" unique_id=605875812]
+transform = Transform3D(-0.9945547, 0, 0.10421598, 0, 1, 0, -0.10421598, 0, -0.9945547, 2.3369455, 0.074074745, 8.857251)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D/TinyBuilding03" unique_id=1126441117]
+transform = Transform3D(-0.9617316, 0, 0.27399275, 0, 1, 0, -0.27399275, 0, -0.9617316, -7.0744386, 0.074074745, 1.4414105)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D/TinyBuilding03/TinyBuilding03" unique_id=65766921]
+transform = Transform3D(-0.96173143, 0, 0.27399272, 0, 1, 0, -0.27399272, 0, -0.96173143, -14.342798, 0.074074745, 6.6390696)
+mesh = ExtResource("2_vlflh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=701631984]
+environment = SubResource("Environment_vrk3e")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=238920798]
+transform = Transform3D(-0.45385054, 0.3232939, -0.83036184, -1.8718154e-08, 0.93186235, 0.3628122, 0.8910778, 0.16466253, -0.42292622, -13.833843, 7.0416346, -4.538045)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1007940116]
+transform = Transform3D(1, 0, 0, 0, -0.5304817, 0.8476964, 0, -0.8476964, -0.5304817, 0, 0, 0)
+light_color = Color(0.9882353, 0.85490197, 0.19215687, 1)
+light_energy = 0.683
+light_angular_distance = 2.89
+shadow_enabled = true
+
+[node name="Hill_desert_001" parent="." unique_id=1100967895 instance=ExtResource("1_1hyoh")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -7.6293945e-06, 0)
+
+[node name="TallBuilding02" type="MeshInstance3D" parent="." unique_id=396650705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.675213, 0.65609884, 0)
+mesh = ExtResource("3_dw61l")
+
+[node name="TallBuilding03" type="MeshInstance3D" parent="." unique_id=1912666542]
+transform = Transform3D(-0.19139148, 0, -0.98151374, 0, 1, 0, 0.98151374, 0, -0.19139148, 1.9339867, 4.263243, -5.4877806)
+mesh = ExtResource("5_fa1w0")
+
+[node name="TinyBuilding01" type="MeshInstance3D" parent="." unique_id=2073690673]
+transform = Transform3D(-0.46219757, 0, -0.886777, 0, 1, 0, 0.886777, 0, -0.46219757, 12.1032095, -0.03896761, 2.1322327)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding01" type="MeshInstance3D" parent="TinyBuilding01" unique_id=458516037]
+transform = Transform3D(-0.46219754, 0, -0.8867771, 0, 1, 0, 0.8867771, 0, -0.46219754, -3.8078957, -0.03896761, -2.6158838)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding02" type="MeshInstance3D" parent="TinyBuilding01" unique_id=886855265]
+transform = Transform3D(-0.77539665, 0, 0.63147485, 0, 1, 0, -0.63147485, 0, -0.77539665, -6.097047, -0.07793522, 1.3878927)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding02" type="MeshInstance3D" parent="TinyBuilding01/TinyBuilding02" unique_id=1513583530]
+transform = Transform3D(-0.7753966, 0, 0.63147485, 0, 1, 0, -0.63147485, 0, -0.7753966, -2.9665833, -0.07793522, -5.876778)
+mesh = ExtResource("2_vlflh")
+
+[node name="SmallBuilding02" type="MeshInstance3D" parent="TinyBuilding01/TinyBuilding02" unique_id=219535844]
+transform = Transform3D(0.8063414, 0, 0.5914504, 0, 1, 0, -0.5914504, 0, 0.8063414, 1.064868, 0, -12.813839)
+mesh = ExtResource("6_wysc3")
+
+[node name="SmallBuilding02" type="MeshInstance3D" parent="TinyBuilding01/TinyBuilding02/SmallBuilding02" unique_id=886174786]
+transform = Transform3D(0.9183634, 0, -0.39573756, 0, 1, 0, 0.39573756, 0, 0.9183634, -17.643982, 0.11690283, -10.303555)
+mesh = ExtResource("6_wysc3")
+
+[node name="TallBuilding06" type="MeshInstance3D" parent="." unique_id=1465405800]
+transform = Transform3D(0.004869398, 0, -0.99998814, 0, 1, 0, 0.99998814, 0, 0.004869398, 8.338804, -0.23475647, -1.543623)
+mesh = ExtResource("7_x4s33")
+
+[node name="TallBuilding06" type="MeshInstance3D" parent="TallBuilding06" unique_id=1945851119]
+transform = Transform3D(-0.6828914, 0, -0.7305199, 0, 1, 0, 0.7305199, 0, -0.6828914, 11.566648, -0.23475647, 19.173477)
+mesh = ExtResource("7_x4s33")
+
+[node name="TallBuilding01" type="MeshInstance3D" parent="TallBuilding06" unique_id=1615478845]
+transform = Transform3D(0.004869398, 0, 0.99998814, 0, 1, 0, -0.99998814, 0, 0.004869398, 15.905792, 0.23475647, 7.803024)
+mesh = ExtResource("7_x4s33")
+
+[node name="TallBuilding01" type="MeshInstance3D" parent="TallBuilding06/TallBuilding01" unique_id=1959305832]
+transform = Transform3D(0.004869398, 0, 0.99998814, 0, 1, 0, -0.99998814, 0, 0.004869398, 15.905792, 0.23475647, -27.908234)
+mesh = ExtResource("7_x4s33")
+
+[node name="TallBuilding01" type="MeshInstance3D" parent="." unique_id=821943353]
+transform = Transform3D(0.9012208, 0, -0.43336025, 0, 1, 0, 0.43336025, 0, 0.9012208, 14.071781, -0.117378235, 5.634823)
+mesh = ExtResource("7_x4s33")
+
+[node name="TallBuilding04" type="MeshInstance3D" parent="." unique_id=1268225088]
+transform = Transform3D(-0.9999704, 0, -0.007696942, 0, 1, 0, 0.007696942, 0, -0.9999704, -8.974152, 4.681087, 4.3816557)
+mesh = ExtResource("5_fa1w0")
+
+[node name="TinyBuilding02" type="MeshInstance3D" parent="." unique_id=1949379847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.344379, 0.62846994, 4.4341006)
+mesh = ExtResource("2_vlflh")
+
+[node name="TallBuilding05" type="MeshInstance3D" parent="." unique_id=251752174]
+transform = Transform3D(0.074143335, 0, 0.9972476, 0, 1, 0, -0.9972476, 0, 0.074143335, -1.8156652, 0.7208481, -5.0709143)
+mesh = ExtResource("3_dw61l")
+
+[node name="TinyBuilding03" type="MeshInstance3D" parent="." unique_id=1397837399]
+transform = Transform3D(-0.9945547, 0, 0.10421598, 0, 1, 0, -0.10421598, 0, -0.9945547, 0, 0.074074745, 8.857251)
+mesh = ExtResource("2_vlflh")
+
+[node name="Mountain_desert_002" parent="." unique_id=532984676 instance=ExtResource("9_211nt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -55.843224, -2.0019379, 18.915913)
+
+[node name="Mountain_desert_003" parent="." unique_id=505678582 instance=ExtResource("10_xmf6g")]
+transform = Transform3D(0.96533155, 0, -0.26102683, 0, 1, 0, 0.26102683, 0, 0.96533155, -58.891685, -3.817215, -24.992035)
+
+[node name="Plateau_desert_004" parent="." unique_id=181501100 instance=ExtResource("11_k6kgl")]
+transform = Transform3D(0.99999815, 0.00060987484, -0.0018388146, 0, 0.9491567, 0.31480432, 0.0019373145, -0.31480375, 0.9491549, -17.961882, -8.469921, 70.78241)
