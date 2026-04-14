@@ -14,6 +14,9 @@
 [ext_resource type="ArrayMesh" uid="uid://dn6pvgwh8i5a" path="res://Assets/Buildings/Package/LargeBuilding01.obj" id="12_xmf6g"]
 [ext_resource type="ArrayMesh" uid="uid://cu87wodpww68d" path="res://Assets/Buildings/Package/SmallBuilding01.obj" id="13_k6kgl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rgpyq"]
+size = Vector3(1000, 1000, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_f67o8"]
 top_radius = 50.0
 bottom_radius = 50.0
@@ -51,9 +54,27 @@ size = Vector3(2, 0.3, 15)
 
 [node name="Node3D" type="Node3D" unique_id=1406369806]
 
+[node name="Area3D" type="Area3D" parent="." unique_id=1528016865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8457458, -0.013448715, -0.018044472)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1151277078]
+shape = SubResource("BoxShape3D_rgpyq")
+
 [node name="Boundary" type="MeshInstance3D" parent="." unique_id=884922847]
 visible = false
 mesh = SubResource("CylinderMesh_f67o8")
+
+[node name="TinyBuilding05" type="MeshInstance3D" parent="." unique_id=605875812]
+transform = Transform3D(-0.9945547, 0, 0.10421598, 0, 1, 0, -0.10421598, 0, -0.9945547, 3.1826913, 0.06062603, 8.839208)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding03" type="MeshInstance3D" parent="TinyBuilding05" unique_id=1126441117]
+transform = Transform3D(-0.9617316, 0, 0.27399275, 0, 1, 0, -0.27399275, 0, -0.9617316, -7.0744386, 0.074074745, 1.4414105)
+mesh = ExtResource("2_vlflh")
+
+[node name="TinyBuilding03" type="MeshInstance3D" parent="TinyBuilding05/TinyBuilding03" unique_id=65766921]
+transform = Transform3D(-0.96173143, 0, 0.27399272, 0, 1, 0, -0.27399272, 0, -0.96173143, -14.342798, 0.074074745, 6.6390696)
+mesh = ExtResource("2_vlflh")
 
 [node name="Mountain_desert_001" parent="." unique_id=2077596509 instance=ExtResource("1_04hpa")]
 transform = Transform3D(1.269234, 0, -0.7994031, 0, 1.4999999, 0, 0.7994031, 0, 1.269234, 53.94392, -1.1846514, 16.740215)
@@ -65,23 +86,11 @@ transform = Transform3D(-0.18515202, 0, -0.9827099, 0, 0.99999964, 0, 0.9827099,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8457458, -0.013448715, -0.018043518)
 mesh = SubResource("PlaneMesh_vrk3e")
 
-[node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D" unique_id=605875812]
-transform = Transform3D(-0.9945547, 0, 0.10421598, 0, 1, 0, -0.10421598, 0, -0.9945547, 2.3369455, 0.074074745, 8.857251)
-mesh = ExtResource("2_vlflh")
-
-[node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D/TinyBuilding03" unique_id=1126441117]
-transform = Transform3D(-0.9617316, 0, 0.27399275, 0, 1, 0, -0.27399275, 0, -0.9617316, -7.0744386, 0.074074745, 1.4414105)
-mesh = ExtResource("2_vlflh")
-
-[node name="TinyBuilding03" type="MeshInstance3D" parent="MeshInstance3D/TinyBuilding03/TinyBuilding03" unique_id=65766921]
-transform = Transform3D(-0.96173143, 0, 0.27399272, 0, 1, 0, -0.27399272, 0, -0.96173143, -14.342798, 0.074074745, 6.6390696)
-mesh = ExtResource("2_vlflh")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=701631984]
 environment = SubResource("Environment_vrk3e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1007940116]
-transform = Transform3D(1, 0, 0, 0, -0.5304817, 0.8476964, 0, -0.8476964, -0.5304817, 0, 0, 0)
+transform = Transform3D(0.87089664, -0.41440618, 0.2642092, -0.49146628, -0.73434347, 0.4681887, 0, -0.5375939, -0.8432039, 0, 0, 0)
 light_color = Color(0.9882353, 0.85490197, 0.19215687, 1)
 light_energy = 0.683
 light_angular_distance = 2.89
