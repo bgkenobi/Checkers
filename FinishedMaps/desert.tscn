@@ -30,7 +30,7 @@ shader_parameter/scale = 2.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vrk3e"]
 material = SubResource("ShaderMaterial_dw61l")
-size = Vector2(1000, 1000)
+size = Vector2(200, 200)
 subdivide_width = 100
 subdivide_depth = 50
 

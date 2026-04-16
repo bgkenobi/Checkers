@@ -6,7 +6,7 @@
 [node name="DesertLevel" type="Node3D" unique_id=1792213597]
 
 [node name="Node3D" parent="." unique_id=1406369806 instance=ExtResource("1_lalqf")]
-transform = Transform3D(0.9999193, 0.01270372, -0.00022174166, -0.01270372, 0.9999193, 1.412839e-06, 0.00022174172, 1.4036815e-06, 1, 0, 0, 0)
+transform = Transform3D(29.99758, 0.3811116, -0.006652251, -0.3811116, 29.99758, 4.240131e-05, 0.0066522523, 4.211044e-05, 30, 0, 0, 0)
 
 [node name="Node3D2" parent="." unique_id=26940096 instance=ExtResource("2_x2vir")]
-transform = Transform3D(0.055838928, 0, 0.9984398, 0, 1, 0, -0.9984398, 0, 0.055838928, 0.08576512, 14.609297, 47.56193)
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -703.42505, 636.0418, 302.8572)
